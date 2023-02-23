@@ -19,13 +19,15 @@ const Form = () => {
       imcCalculator();
       setHeight(null);
       setWeight(null);
-      setMessageIMC(`seu IMC é igual a:`);
+      setMessageIMC("seu IMC é igual a:");
       setTextButton('Calcular novamente');
       return;
     };
     setImc(null);
     setTextButton('Calcular');
-    setMessageIMC(`Preencha os campos de 'Peso' e 'ALtura'!`);
+    if (height === null) return setMessageIMC("Preencha o campo de 'Altura'!");
+    if (weight === null) return setMessageIMC("Preencha o campo de 'Peso'!");
+    if (weight !== null && height !== null) return setMessageIMC("Preencha os campos de 'Peso' e 'ALtura'!");
   }
 
   return (
@@ -49,10 +51,6 @@ const Form = () => {
           keyboardType={'numeric'}
         />
 
-        {/* <Button
-          title={textButton}
-          onPress={() => validIMC()}
-        /> */}
         <TouchableOpacity
           style={style.buttonCalculator}
           onPress={() => validIMC()}
