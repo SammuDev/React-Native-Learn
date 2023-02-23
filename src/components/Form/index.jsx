@@ -25,9 +25,9 @@ const Form = () => {
     };
     setImc(null);
     setTextButton('Calcular');
-    if (height === null) return setMessageIMC("Preencha o campo de 'Altura'!");
-    if (weight === null) return setMessageIMC("Preencha o campo de 'Peso'!");
-    if (weight !== null && height !== null) return setMessageIMC("Preencha os campos de 'Peso' e 'ALtura'!");
+    if (weight !== null && height === null) return setMessageIMC("Preencha o campo de 'Altura'!");
+    if (weight === null && height !== null) return setMessageIMC("Preencha o campo de 'Peso'!");
+    setMessageIMC("Preencha os campos de 'Peso' e 'ALtura'!");
   }
 
   return (
