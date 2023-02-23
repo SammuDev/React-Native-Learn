@@ -18,8 +18,8 @@ const Form = () => {
       imcCalculator();
       setHeight(null);
       setWeight(null);
-      setMessageIMC(`seu IMC é igual a :`);
-      setTextButton('Calcular novamente!');
+      setMessageIMC(`seu IMC é igual a:`);
+      setTextButton('Calcular novamente');
       return;
     };
     setImc(null);
@@ -42,7 +42,7 @@ const Form = () => {
         <TextInput
           onChangeText={setWeight}
           value={weight}
-          placeholder={'Ex: 75.365'}
+          placeholder={'Ex: 75.36'}
           keyboardType={'numeric'}
         />
 
