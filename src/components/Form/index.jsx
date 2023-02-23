@@ -5,7 +5,7 @@ import ResultIMC from './ResultIMC';
 const Form = () => {
   const [height, setHeight] = useState(null);
   const [weight, setWeight] = useState(null);
-  const [messageIMC, setMessageIMC] = useState(null);
+  const [messageIMC, setMessageIMC] = useState("Preencha os campos de 'Peso' e 'ALtura'!");
   const [imc, setImc] = useState(null);
   const [textButton, setTextButton] = useState('Calcular');
 
@@ -32,22 +32,29 @@ const Form = () => {
       <View>
         <Text>Altura</Text>
         <TextInput
+          onChangeText={setHeight}
+          value={height}
           placeholder={'Ex: 1.75'}
           keyboardType={'numeric'}
         />
 
         <Text>Peso</Text>
         <TextInput
+          onChangeText={setWeight}
+          value={weight}
           placeholder={'Ex: 75.365'}
           keyboardType={'numeric'}
         />
 
-        <Button title={'Calcular IMC'}/>
+        <Button
+          title={textButton}
+          onPress={() => validIMC()}
+        />
       </View>
 
       <ResultIMC
         messageResultIMC={messageIMC}
-        resultIMC={resultIMC}
+        resultIMC={imc}
       />
     </View>
   );
